@@ -6,10 +6,6 @@ function objectOverlapP2 () {
     player2.sayText(text_list._pickRandom())
     info.player2.changeScoreBy(1)
 }
-controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Released, function () {
-    sprites.destroy(Map1)
-    scene.cameraFollowSprite(player2)
-})
 sprites.onOverlap(SpriteKind.Player2, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
     objectOverlapP2()
@@ -19,15 +15,10 @@ function objectOverlapP1 () {
     player1.sayText(text_list._pickRandom())
     info.player1.changeScoreBy(1)
 }
-controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Released, function () {
-    sprites.destroy(Map1)
-    scene.cameraFollowSprite(player1)
-})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(otherSprite)
     objectOverlapP1()
 })
-let Map1: Sprite = null
 let text_list: string[] = []
 let player2: Sprite = null
 let player1: Sprite = null
